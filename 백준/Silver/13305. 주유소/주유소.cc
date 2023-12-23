@@ -4,37 +4,32 @@ using namespace std;
 
 int main() {
 
+
 	int Citynum;
 	cin >> Citynum;
-	int* OilCost = new int[Citynum];
-	int* distanceCity = new int[Citynum - 1];
+	long long int* OilCost = new long long int[Citynum];
+	long long int* distanceCity = new long long  int[Citynum - 1];
 
-	int totaldis = 0;
-	int totalcost = 0;
 	for (int i = 0; i < Citynum - 1; i++)
 	{
-		int tmp;
-		cin >> tmp;
-		distanceCity[i] = tmp;
-		totaldis += tmp;
+		cin >> distanceCity[i];
 	}
 	for (int i = 0; i < Citynum;i++)
 	{
 		cin >> OilCost[i];
 	}
-	//totalcost += OilCost[0] * distanceCity[0];
-	int nowOilCost=OilCost[0];
+
+	long long int totalcost = 0;
+	long long int nowOilCost = OilCost[0];
+
 	for (int i = 0; i < Citynum - 1; i++)
 	{
 		if (OilCost[i] < nowOilCost)
 		{
 			nowOilCost = OilCost[i];
-			totalcost += nowOilCost * distanceCity[i];
+			
 		}
-		else
-		{
-			totalcost += nowOilCost * distanceCity[i];
-		}
+		totalcost += nowOilCost * distanceCity[i];
 		
 	}
 	cout << totalcost << endl;
